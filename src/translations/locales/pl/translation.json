@@ -1,5 +1,15 @@
 {
-    "test": {
-        "entry": "testowe tłumaczenie"
+    "navbar": {
+        "name": "Strefa Czystego Transportu",
+        "chooseLanguage": "Wybierz język",
+        "pages": {
+            "home": "Home",
+            "about": "O strefie",
+            "importantInfo": "Ważne informacje",
+            "news": "Aktualności",
+            "exclusions": "Wyłączenia",
+            "regulations": "Przepisy",
+            "map": "Mapa"
+        }
     }
 }
