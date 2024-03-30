@@ -32,7 +32,7 @@ const icons = [
   faDog
 ]
 
-const animations = <span className="relative overflow-y-clip ml-1">
+const animations = <span className="relative overflow-y-clip ml-0.5">
   {/* placeholder */}
   <FontAwesomeIcon icon={faPersonBiking} size="lg" className="text-transparent" />
   {
@@ -50,8 +50,9 @@ export default function Footer() {
       <p className="text-2xs md:text-xs">
         {t("footer.phrase1.text1")}
         <span className="relative">
-          <FontAwesomeIcon icon={faHeart} size="lg" className="text-primary mx-1" />
+          <FontAwesomeIcon icon={faHeart} size="lg" className="text-primary mx-1" aria-hidden="true" />
           {animation(1, 0, faHeart, { "scale": [1.1, 1, 1.1] }, 2)}
+          <span className="sr-only">&nbsp;{"<3"}&nbsp;</span>
         </span>
         {t("footer.phrase1.text2")}
         <Link href="https://socjologia.uj.edu.pl/" className="text-2xs md:text-xs" isExternal>{t("footer.phrase1.sociology")}</Link>
@@ -59,7 +60,8 @@ export default function Footer() {
         &nbsp;
         {t("footer.phrase2.text1")}
         {animations}
-        .
+        <span className="sr-only">&nbsp;ALL</span>
+        {t("footer.phrase2.text2")}
       </p>
     </div>
   );

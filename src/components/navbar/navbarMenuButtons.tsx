@@ -8,7 +8,7 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function NavbarMenuButtons() {
+export default function NavbarMenuButtons({closeFun}: {closeFun: () => void}) {
 
     const [hideOptions, setHideOptions] = useState(true)
 
@@ -22,6 +22,7 @@ export default function NavbarMenuButtons() {
                 isBlock
                 showAnchorIcon={!!entry.icon}
                 anchorIcon={entry.icon}
+                onClick={closeFun}
             >
                 {t(entry.translationKey)}
             </Link>
@@ -55,6 +56,7 @@ export default function NavbarMenuButtons() {
                     anchorIcon={entry.icon}
                     color="foreground"
                     href={entry.route}
+                    onClick={closeFun}
                 >
                     {t(entry.translationKey)}
                 </Link>
