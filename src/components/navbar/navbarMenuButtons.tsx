@@ -18,7 +18,7 @@ export default function NavbarMenuButtons() {
         return <NavbarMenuItem className="flex center">
             <Link
                 color="foreground"
-                href="#"
+                href={entry.route}
                 isBlock
                 showAnchorIcon={!!entry.icon}
                 anchorIcon={entry.icon}
@@ -53,7 +53,7 @@ export default function NavbarMenuButtons() {
                     showAnchorIcon={!!entry.icon}
                     anchorIcon={entry.icon}
                     color="foreground"
-                    href="#"
+                    href={entry.route}
                 >
                     {t(entry.translationKey)}
                 </Link>

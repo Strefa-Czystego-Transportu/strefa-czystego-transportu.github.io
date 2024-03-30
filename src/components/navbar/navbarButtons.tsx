@@ -14,7 +14,7 @@ export default function NavbarButtons() {
         return <NavbarItem className="flex center">
             <Link
                 color="foreground"
-                href="#"
+                href={entry.route}
                 isBlock
                 showAnchorIcon={!!entry.icon}
                 anchorIcon={entry.icon}
@@ -47,10 +47,14 @@ export default function NavbarButtons() {
                         entry.childs.map(entry => (
                             <DropdownItem
                                 key="autoscaling"
-                                // description="aaa"
                                 endContent={entry.icon ? entry.icon : <FontAwesomeIcon icon={faChevronRight} />}
                             >
-                                {t(entry.translationKey)}
+                                <Link
+                                    href={entry.route}
+                                    color="foreground"
+                                >
+                                    {t(entry.translationKey)}
+                                </Link>
                             </DropdownItem>
                         ))
                     }

@@ -6,6 +6,8 @@ import Customization from "./customization";
 
 import NavbarButtons from "./navbarButtons";
 import NavbarMenuButtons from "./navbarMenuButtons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +29,9 @@ export default function Navbar() {
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="md:hidden"
+                    icon={
+                        isOpen => isOpen ? <FontAwesomeIcon icon={faXmark} size="2xl" className="text-primary" /> : <FontAwesomeIcon icon={faBars} size="xl" className="text-primary" />
+                    }
                 />
             </NavbarContent>
             <NavbarMenu>

@@ -9,6 +9,11 @@ export default {
   ],
   theme: {
     extend: {},
+    fontSize: {
+      "2xs": ['0.6rem', {
+        lineHeight: '0.6rem',
+      }]
+    }
   },
   darkMode: "class",
   plugins: [
