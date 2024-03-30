@@ -7,6 +7,8 @@ import Exclusions from './pages/exclusions';
 import Regulations from './pages/regulations';
 import News from './pages/news';
 import Map from './pages/map';
+import Footer from './components/footer/footer';
+import { Divider } from '@nextui-org/react';
 
 const router = createHashRouter([
   {
@@ -40,7 +42,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <RouterProvider router={router} />
+      <div className='w-full flex flex-col justify-center items-center' style={{minHeight: "calc(100vh - 4rem)"}}>
+        <div className='grow flex flex-col justify-center items-center'>
+          <RouterProvider router={router} />
+        </div>
+        <Divider className="my-2 w-11/12 light:bg-foreground-300 dark:bg-foreground-200"/>
+        <Footer />
+      </div>
     </>
   )
 }

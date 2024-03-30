@@ -10,8 +10,8 @@ export default function NavbarButtons() {
 
     const { t } = useTranslation();
 
-    function generateFlatEntry(entry: FlatEntry): JSX.Element {
-        return <NavbarItem className="flex center">
+    function generateFlatEntry(entry: FlatEntry, id?: number): JSX.Element {
+        return <NavbarItem key={id} className="flex center">
             <Link
                 color="foreground"
                 href={entry.route}
@@ -24,8 +24,8 @@ export default function NavbarButtons() {
         </NavbarItem>
     }
 
-    function generateGroupEntry(entry: GroupEntry): JSX.Element {
-        return <NavbarItem className="flex center">
+    function generateGroupEntry(entry: GroupEntry, id?: number): JSX.Element {
+        return <NavbarItem key={id} className="flex center">
             <Dropdown>
                 <DropdownTrigger>
                     <Link
@@ -44,9 +44,9 @@ export default function NavbarButtons() {
                     }}
                 >
                     {
-                        entry.childs.map(entry => (
+                        entry.childs.map((entry, id) => (
                             <DropdownItem
-                                key="autoscaling"
+                                key={id}
                                 endContent={entry.icon ? entry.icon : <FontAwesomeIcon icon={faChevronRight} />}
                             >
                                 <Link
@@ -66,7 +66,7 @@ export default function NavbarButtons() {
 
     return (
         config.map(
-            entry => entry.type === "flat" ? generateFlatEntry(entry) : generateGroupEntry(entry)
+            (entry, id) => entry.type === "flat" ? generateFlatEntry(entry, id) : generateGroupEntry(entry, id)
         )
     );
 }

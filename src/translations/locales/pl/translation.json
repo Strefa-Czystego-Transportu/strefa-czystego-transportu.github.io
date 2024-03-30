@@ -11,5 +11,17 @@
             "regulations": "Przepisy",
             "map": "Mapa"
         }
+    },
+    "footer": {
+        "phrase1": {
+            "text1": "Stworzone z",
+            "text2": "na potrzeby\u00A0",
+            "sociology": "Socjologii UJ",
+            "text3": "."
+        },
+        "phrase2": {
+            "text1": "Bo martwimy się o",
+            "text2": "."
+        }
     }
 }

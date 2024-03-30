@@ -14,8 +14,8 @@ export default function NavbarMenuButtons() {
 
     const { t } = useTranslation();
 
-    function generateFlatEntry(entry: FlatEntry): JSX.Element {
-        return <NavbarMenuItem className="flex center">
+    function generateFlatEntry(entry: FlatEntry, id?: number): JSX.Element {
+        return <NavbarMenuItem key={id} className="flex center">
             <Link
                 color="foreground"
                 href={entry.route}
@@ -28,13 +28,14 @@ export default function NavbarMenuButtons() {
         </NavbarMenuItem>
     }
 
-    function generateGroupEntry(entry: GroupEntry): JSX.Element {
+    function generateGroupEntry(entry: GroupEntry, id?: number): JSX.Element {
         const variants = {
             open: { opacity: 1, height: "100%" },
             closed: { opacity: 0, height: 0 },
         }
 
         const toggle = <Link
+            key={id}
             isBlock
             showAnchorIcon
             anchorIcon={<FontAwesomeIcon icon={hideOptions ? faChevronDown : faChevronUp} className="ml-2" />}
@@ -47,7 +48,7 @@ export default function NavbarMenuButtons() {
 
 
         const items = entry.childs.map(
-            entry => <NavbarMenuItem className="flex center pl-6">
+            (entry, id) => <NavbarMenuItem key={id} className="flex center pl-6">
                 <Link
                     isBlock
                     showAnchorIcon={!!entry.icon}
@@ -76,7 +77,7 @@ export default function NavbarMenuButtons() {
 
     return (
         config.map(
-            entry => entry.type === "flat" ? generateFlatEntry(entry) : generateGroupEntry(entry)
+            (entry, id) => entry.type === "flat" ? generateFlatEntry(entry, id) : generateGroupEntry(entry, id)
         )
     );
 }
