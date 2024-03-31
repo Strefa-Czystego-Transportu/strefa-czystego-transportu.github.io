@@ -1,72 +1,93 @@
 import { NavbarItem, Link, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 
-
-import { FlatEntry, GroupEntry, config } from "./navbarConfig";
+import { Entry, FlatEntry, GroupEntry, config } from "./navbarConfig";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
-export default function NavbarButtons() {
+function FlatEntryComponent({ entry, refresh, isActive }: { entry: FlatEntry, refresh?: () => void, isActive: boolean }) {
 
     const { t } = useTranslation();
 
-    function generateFlatEntry(entry: FlatEntry, id?: number): JSX.Element {
-        return <NavbarItem key={id} className="flex center">
-            <Link
-                color="foreground"
-                href={entry.route}
-                isBlock
-                showAnchorIcon={!!entry.icon}
-                anchorIcon={entry.icon}
-            >
-                {t(entry.translationKey)}
-            </Link>
-        </NavbarItem>
-    }
+    return <NavbarItem className="flex center">
+        <Link
+            color={isActive ? "primary" : "foreground"}
+            href={entry.route}
+            isBlock
+            showAnchorIcon={!!entry.icon}
+            anchorIcon={entry.icon}
+            onPress={refresh}
+        >
+            {t(entry.translationKey)}
+        </Link>
+    </NavbarItem>
+}
 
-    function generateGroupEntry(entry: GroupEntry, id?: number): JSX.Element {
-        return <NavbarItem key={id} className="flex center">
-            <Dropdown>
-                <DropdownTrigger>
-                    <Link
-                        isBlock
-                        className="cursor-pointer"
-                        showAnchorIcon
-                        anchorIcon={<FontAwesomeIcon icon={faChevronDown} className="ml-2" />}
-                        color="foreground"
-                    >
-                        {t(entry.translationKey)}
-                    </Link>
-                </DropdownTrigger>
-                <DropdownMenu
-                    itemClasses={{
-                        base: "gap-4",
-                    }}
+function GroupEntryComponent({ entry, refresh, isActive }: { entry: GroupEntry, refresh?: () => void, isActive: boolean }) {
+
+    const { t } = useTranslation();
+
+    return <NavbarItem className="flex center">
+        <Dropdown>
+            <DropdownTrigger>
+                <Link
+                    isBlock
+                    className="cursor-pointer"
+                    showAnchorIcon
+                    anchorIcon={<FontAwesomeIcon icon={faChevronDown} className="ml-2" />}
+                    color={isActive ? "primary" : "foreground"}
                 >
-                    {
-                        entry.childs.map((entry, id) => (
-                            <DropdownItem
-                                key={id}
-                                endContent={entry.icon ? entry.icon : <FontAwesomeIcon icon={faChevronRight} />}
+                    {t(entry.translationKey)}
+                </Link>
+            </DropdownTrigger>
+            <DropdownMenu
+                itemClasses={{
+                    base: "gap-4",
+                }}
+            >
+                {
+                    entry.childs.map((entry, childId) => (
+                        <DropdownItem
+                            key={childId}
+                            endContent={entry.icon ? entry.icon : <FontAwesomeIcon icon={faChevronRight} />}
+                        >
+                            <Link
+                                href={entry.route}
+                                color="foreground"
+                                onPress={refresh}
                             >
-                                <Link
-                                    href={entry.route}
-                                    color="foreground"
-                                >
-                                    {t(entry.translationKey)}
-                                </Link>
-                            </DropdownItem>
-                        ))
-                    }
+                                {t(entry.translationKey)}
+                            </Link>
+                        </DropdownItem>
+                    ))
+                }
 
-                </DropdownMenu>
-            </Dropdown>
-        </NavbarItem>
+            </DropdownMenu>
+        </Dropdown>
+    </NavbarItem>
+}
+
+function checkActive(entry: Entry) {
+    if (entry.type === "flat") {
+        return location.href.includes(entry.route)
+    } else {
+        return entry.childs.map(child => location.href.includes(child.route)).filter(x => x).length > 0
     }
+}
 
-    return (
-        config.map(
-            (entry, id) => entry.type === "flat" ? generateFlatEntry(entry, id) : generateGroupEntry(entry, id)
-        )
-    );
+export default function NavbarButtons() {
+
+    const [activeEntry, setActiveEntry] = useState(config.reduce<Entry | undefined>((acc, entry) => checkActive(entry) ? entry : acc, undefined))
+
+    return <>
+        {
+            config.map(
+                (entry, id) => entry.type === "flat"
+                    ? <FlatEntryComponent key={id} entry={entry} refresh={() => setActiveEntry(entry)} isActive={activeEntry == entry} />
+                    : <GroupEntryComponent key={id} entry={entry} refresh={() => setActiveEntry(entry)} isActive={activeEntry == entry} />
+            )
+        }
+    </>
+
 }

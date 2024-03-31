@@ -7,7 +7,7 @@ export default function NewsItem({ data }: { data: NewsData }) {
     const { t } = useTranslation();
 
     return <>
-        <Card className="p-4" shadow="md">
+        <Card className="p-4" shadow="sm">
             <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                 <small className="text-default-500">{data.date}</small>
                 <h4 className="font-bold text-large line-clamp-2">{data.title}</h4>

@@ -15,7 +15,7 @@ export interface GroupEntry {
     childs: FlatEntry[],
 }
 
-type Entry = FlatEntry | GroupEntry
+export type Entry = FlatEntry | GroupEntry
 
 export const config: Entry[] = [
     {

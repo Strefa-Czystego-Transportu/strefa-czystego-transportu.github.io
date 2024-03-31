@@ -2,7 +2,7 @@ import { Card, Skeleton } from "@nextui-org/react";
 
 export default function NewsSkeleton() {
     return (
-        <Card className="p-4" shadow="md">
+        <Card className="p-4" shadow="sm">
             <div className="grid grid-cols-1 gap-4">
                 <Skeleton className="rounded-lg w-24">
                     <div className="h-4 rounded-lg bg-default-300"></div>
