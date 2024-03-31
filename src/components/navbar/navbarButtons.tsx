@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { checkActive } from "./utils";
 
 function FlatEntryComponent({ entry, refresh, isActive }: { entry: FlatEntry, refresh?: () => void, isActive: boolean }) {
 
@@ -66,14 +67,6 @@ function GroupEntryComponent({ entry, refresh, isActive }: { entry: GroupEntry, 
             </DropdownMenu>
         </Dropdown>
     </NavbarItem>
-}
-
-function checkActive(entry: Entry) {
-    if (entry.type === "flat") {
-        return location.href.includes(entry.route)
-    } else {
-        return entry.childs.map(child => location.href.includes(child.route)).filter(x => x).length > 0
-    }
 }
 
 export default function NavbarButtons() {

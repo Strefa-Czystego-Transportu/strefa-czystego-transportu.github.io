@@ -38,15 +38,14 @@ const router = createHashRouter([
 ]);
 
 function App() {
-
   return (
     <>
       <Navbar />
-      <div className='w-full flex flex-col justify-center items-center' style={{minHeight: "calc(100vh - 4rem)"}}>
+      <div className='w-full flex flex-col justify-center items-center' style={{ minHeight: "calc(100vh - 4rem)" }}>
         <div className='grow flex flex-col justify-center items-center'>
           <RouterProvider router={router} />
         </div>
-        <Divider className="my-2 w-11/12 light:bg-foreground-300 dark:bg-foreground-200"/>
+        <Divider className="my-2 w-11/12 light:bg-foreground-300 dark:bg-foreground-200" />
         <Footer />
       </div>
     </>

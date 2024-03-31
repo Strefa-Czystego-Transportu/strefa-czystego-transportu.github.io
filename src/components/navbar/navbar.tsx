@@ -35,7 +35,7 @@ export default function Navbar() {
                 />
             </NavbarContent>
             <NavbarMenu>
-                <NavbarMenuButtons closeFun={() => {setIsMenuOpen(false); console.log("dupa")}}/>
+                <NavbarMenuButtons/>
             </NavbarMenu>
         </NUINavbar>
     );
