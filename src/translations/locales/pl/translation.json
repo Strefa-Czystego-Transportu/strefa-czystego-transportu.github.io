@@ -23,5 +23,10 @@
             "text1": "Bo myślimy o",
             "text2": "."
         }
+    },
+    "news": {
+        "readMore": "Czytaj więcej",
+        "checkZTP": "Sprawdź więcej informacji na stronie ZTP",
+        "ZTPhref": "https://ztp.krakow.pl/wszystkie-aktualnosci/sct"
     }
 }

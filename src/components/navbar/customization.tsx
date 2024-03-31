@@ -15,7 +15,7 @@ export default function Customization() {
                 <LanguageDropdown />
             </NavbarItem>
             <NavbarItem>
-                <Button as={Link} color="primary" href="#" variant="ghost" isIconOnly onClick={() => theme === "light" ? setTheme("dark") : setTheme("light")}>
+                <Button as={Link} color="primary" variant="ghost" isIconOnly onClick={() => theme === "light" ? setTheme("dark") : setTheme("light")}>
                     <FontAwesomeIcon icon={faCircleHalfStroke} size="xl" />
                 </Button>
             </NavbarItem>
@@ -46,7 +46,7 @@ function LanguageDropdown() {
     return (
         <Dropdown>
             <DropdownTrigger>
-                <Button as={Link} color="primary" href="#" variant="ghost" isIconOnly>
+                <Button as={Link} color="primary" variant="ghost" isIconOnly>
                     <FontAwesomeIcon icon={faLanguage} size="xl" />
                 </Button>
             </DropdownTrigger>
