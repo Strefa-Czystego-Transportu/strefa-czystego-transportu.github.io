@@ -1,4 +1,8 @@
 {
+    "common": {
+        "checkZTP": "Dowiedz się więcej na oficjalnej stronie ZTP",
+        "ZTPhref": "https://ztp.krakow.pl/wszystkie-aktualnosci/sct"
+    },
     "navbar": {
         "name": "Strefa Czystego Transportu",
         "chooseLanguage": "Wybierz język",
@@ -25,9 +29,7 @@
         }
     },
     "news": {
-        "readMore": "Czytaj więcej",
-        "checkZTP": "Dowiedz się więcej na oficjalnej stronie ZTP",
-        "ZTPhref": "https://ztp.krakow.pl/wszystkie-aktualnosci/sct"
+        "readMore": "Czytaj więcej"
     },
     "about": {
         "faq": {

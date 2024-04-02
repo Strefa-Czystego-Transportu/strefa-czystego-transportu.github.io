@@ -2,9 +2,8 @@ import cheerio from 'cheerio';
 import { NewsData } from '../components/news/newsData';
 import { useEffect, useState } from 'react';
 import NewsItem from '../components/news/newsItem';
-import { useTranslation } from 'react-i18next';
-import { Link } from '@nextui-org/react';
 import NewsSkeleton from '../components/news/newsSkeleton';
+import CheckZTP from '../components/checkZTP';
 
 async function fetchArticle(): Promise<NewsData[]> {
     const response = await fetch('https://corsproxy.io/?https://ztp.krakow.pl/wszystkie-aktualnosci/sct');
@@ -30,8 +29,6 @@ async function fetchArticle(): Promise<NewsData[]> {
 
 export default function News() {
 
-    const { t } = useTranslation();
-
     const [data, setData] = useState<(NewsData | undefined)[]>(Array(6).fill(undefined))
 
     useEffect(() => {
@@ -49,9 +46,7 @@ export default function News() {
                         )
                     }
                 </div>
-                <div className="w-full text-end">
-                    <Link href={t("news.ZTPhref")} isExternal showAnchorIcon className='mt-4 mb-2 font-bold' isBlock>{t("news.checkZTP")}</Link>
-                </div>
+                <CheckZTP />
             </div>
 
         </>
