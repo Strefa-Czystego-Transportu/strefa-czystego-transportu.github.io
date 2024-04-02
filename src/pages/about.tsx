@@ -1,4 +1,4 @@
-import Faq from "../components/about/faq"
+import InformationCard from "../components/informationCard"
 import Timeline from "../components/about/timeline"
 import { config as faqConfig } from "../config/faqConfig"
 
@@ -8,7 +8,7 @@ export default function About() {
       <div className="flex flex-col items-center justify-center">
         <div className="grid grid-cols-1 gap-4 w-5/6 lg:w-3/4">
           {
-            faqConfig.map((data, id) => <Faq data={data} key={id} />)
+            faqConfig.map((data, id) => <InformationCard data={data} key={id} />)
           }
         </div>
       </div>

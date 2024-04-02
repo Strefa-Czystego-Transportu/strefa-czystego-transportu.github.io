@@ -30,6 +30,12 @@ export const config: Entry[] = [
         childs: [
             {
                 type: "flat",
+                translationKey: "navbar.pages.news",
+                route: "#/news",
+                icon: <FontAwesomeIcon icon={faNewspaper} className="ml-2" />
+            },
+            {
+                type: "flat",
                 translationKey: "navbar.pages.regulations",
                 route: "#/regulations",
                 icon: <FontAwesomeIcon icon={faSection} className="ml-2" />
@@ -39,12 +45,6 @@ export const config: Entry[] = [
                 translationKey: "navbar.pages.exclusions",
                 route: "#/exclusions",
                 icon: <FontAwesomeIcon icon={faListCheck} className="ml-2" />
-            },
-            {
-                type: "flat",
-                translationKey: "navbar.pages.news",
-                route: "#/news",
-                icon: <FontAwesomeIcon icon={faNewspaper} className="ml-2" />
             },
         ]
     },

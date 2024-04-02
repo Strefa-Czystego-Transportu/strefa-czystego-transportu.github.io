@@ -1,7 +1,7 @@
 import { IconDefinition, faBus, faCar, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export interface Entry {
-    titleTranslationKey: string,
+    titleTranslationKey?: string,
     descriptionTranslationKey: string,
     icon: IconDefinition,
 }

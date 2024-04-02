@@ -45,5 +45,21 @@
             "desc4": "Culpa ut nostrud officia officia cillum ea.",
             "desc5": "Dolore officia velit sunt consectetur mollit tempor magna ex eu consequat ex voluptate."
         }
+    },
+    "exclusions": {
+        "d1": "Duis ex sint minim labore occaecat id eu fugiat ea et do officia non ea.",
+        "d2": "Eiusmod minim nulla minim quis exercitation ullamco officia cupidatat cillum.",
+        "d3": "Veniam aliquip officia consequat duis aliqua sint dolor deserunt anim aliqua consequat mollit.",
+        "d4": "Sunt deserunt sint ex adipisicing ea occaecat esse id aliqua excepteur laboris enim.",
+        "d5": "Voluptate fugiat incididunt voluptate laborum deserunt Lorem proident labore.",
+        "d6": "Ullamco sit dolor magna anim mollit duis commodo laboris eu deserunt anim occaecat."
+    },
+    "regulations": {
+        "d1": "In sunt magna in minim veniam reprehenderit eu magna qui sint ea eiusmod amet et.",
+        "d2": "Non aliqua pariatur et velit labore in reprehenderit.",
+        "d3": "Veniam adipisicing fugiat aliquip qui anim laboris non.",
+        "d4": "Aute ullamco adipisicing esse elit consequat aliquip cillum sunt.",
+        "d5": "Aliquip mollit officia qui voluptate dolor ipsum nisi reprehenderit ad eu labore occaecat aliquip.",
+        "d6": "Sit pariatur ullamco non elit labore."
     }
 }
