@@ -1,4 +1,4 @@
-import { Entry } from "./navbarConfig"
+import { Entry } from "../../config/navbarConfig"
 
 export function checkActive(entry: Entry) {
     if (entry.type === "flat") {

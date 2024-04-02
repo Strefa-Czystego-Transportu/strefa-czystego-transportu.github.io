@@ -1,6 +1,6 @@
 import { NavbarItem, Link, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 
-import { Entry, FlatEntry, GroupEntry, config } from "./navbarConfig";
+import { Entry, FlatEntry, GroupEntry, config } from "../../config/navbarConfig";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";

@@ -26,7 +26,24 @@
     },
     "news": {
         "readMore": "Czytaj więcej",
-        "checkZTP": "Sprawdź więcej informacji na stronie ZTP",
+        "checkZTP": "Dowiedz się więcej na oficjalnej stronie ZTP",
         "ZTPhref": "https://ztp.krakow.pl/wszystkie-aktualnosci/sct"
+    },
+    "about": {
+        "faq": {
+            "t1": "Enim minim nisi consectetur nulla amet elit elit eiusmod id cupidatat nisi ex.",
+            "d1": "Aute laborum ea quis sunt pariatur dolor qui enim exercitation esse consequat ullamco sint. Quis fugiat deserunt aliqua ea Lorem fugiat tempor dolore. Lorem pariatur cupidatat id sint. In sit et fugiat fugiat cupidatat deserunt voluptate cupidatat sit occaecat sint nisi nulla. Veniam consectetur minim exercitation irure irure labore exercitation reprehenderit voluptate do Lorem. Ut ex cupidatat sit proident irure non. Voluptate ex irure ullamco commodo culpa deserunt laboris labore consectetur excepteur do.",
+            "t2": "Culpa ea consectetur aliquip do ad ea excepteur.",
+            "d2": "Anim sunt sit duis enim ut ut Lorem consequat excepteur aliquip elit adipisicing aliquip exercitation. Dolore eiusmod labore dolor labore aute laborum quis duis nostrud. Ad magna qui occaecat nostrud magna proident dolore.",
+            "t3": "Duis eu consequat officia aute eu in.",
+            "d3": "Anim id minim consectetur velit aute cupidatat nisi aliquip proident ut incididunt ut elit laboris. Sunt est et amet aute velit. Ea ad mollit eiusmod minim cupidatat ullamco. Id in nulla voluptate minim ad officia ipsum velit. In ad qui eu ad in irure ex sint anim nostrud esse eiusmod. Nulla fugiat eu nulla incididunt adipisicing occaecat culpa anim et irure."
+        },
+        "timeline": {
+            "desc1": "Eiusmod ipsum est sunt et irure exercitation.",
+            "desc2": "Aute cupidatat commodo nostrud Lorem ut mollit velit deserunt veniam aliqua consequat qui.",
+            "desc3": "Non officia elit irure officia cillum aliqua ut commodo eiusmod dolor culpa.",
+            "desc4": "Culpa ut nostrud officia officia cillum ea.",
+            "desc5": "Dolore officia velit sunt consectetur mollit tempor magna ex eu consequat ex voluptate."
+        }
     }
 }
