@@ -1,15 +1,16 @@
 import { Link, NavbarMenuItem } from "@nextui-org/react";
 
 
-import { Entry, FlatEntry, GroupEntry, config } from "../../config/navbarConfig";
+import { FlatEntry, GroupEntry, config } from "../../config/navbarConfig";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { checkActive } from "./utils";
+import { useAppSelector } from "../../hooks";
 
-function FlatEntryComponent({ entry, refresh, isActive }: { entry: FlatEntry, refresh?: () => void, isActive: boolean }) {
+function FlatEntryComponent({ entry, isActive }: { entry: FlatEntry, isActive: boolean }) {
 
     const { t } = useTranslation();
 
@@ -20,14 +21,13 @@ function FlatEntryComponent({ entry, refresh, isActive }: { entry: FlatEntry, re
             isBlock
             showAnchorIcon={!!entry.icon}
             anchorIcon={entry.icon}
-            onPress={refresh}
         >
             {t(entry.translationKey)}
         </Link>
     </NavbarMenuItem>
 }
 
-function GroupEntryComponent({ entry, refresh, isActive }: { entry: GroupEntry, refresh?: () => void, isActive: boolean }) {
+function GroupEntryComponent({ entry, isActive }: { entry: GroupEntry, isActive: boolean }) {
 
     const { t } = useTranslation();
 
@@ -58,7 +58,6 @@ function GroupEntryComponent({ entry, refresh, isActive }: { entry: GroupEntry, 
                 anchorIcon={entry.icon}
                 color="foreground"
                 href={entry.route}
-                onPress={refresh}
             >
                 {t(entry.translationKey)}
             </Link>
@@ -81,14 +80,14 @@ function GroupEntryComponent({ entry, refresh, isActive }: { entry: GroupEntry, 
 
 export default function NavbarMenuButtons() {
 
-    const [activeEntry, setActiveEntry] = useState(config.reduce<Entry | undefined>((acc, entry) => checkActive(entry) ? entry : acc, undefined))
+    const route = useAppSelector((state) => state.route.value)
 
     return <>
         {
             config.map(
                 (entry, id) => entry.type === "flat"
-                    ? <FlatEntryComponent key={id} entry={entry} refresh={() => setActiveEntry(entry)} isActive={activeEntry == entry} />
-                    : <GroupEntryComponent key={id} entry={entry} refresh={() => setActiveEntry(entry)} isActive={activeEntry == entry} />
+                    ? <FlatEntryComponent key={id} entry={entry} isActive={checkActive(entry, route)} />
+                    : <GroupEntryComponent key={id} entry={entry} isActive={checkActive(entry, route)} />
             )
         }
     </>

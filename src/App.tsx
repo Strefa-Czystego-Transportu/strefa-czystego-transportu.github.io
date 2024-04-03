@@ -13,27 +13,27 @@ import { Divider } from '@nextui-org/react';
 const router = createHashRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home route="#" />,
   },
   {
     path: "/about",
-    element: <About />,
+    element: <About route="#/about" />,
   },
   {
     path: "/regulations",
-    element: <Regulations />,
+    element: <Regulations route="#/regulations" />,
   },
   {
     path: "/exclusions",
-    element: <Exclusions />,
+    element: <Exclusions route="#/exclusions" />,
   },
   {
     path: "/news",
-    element: <News />,
+    element: <News route="#/news" />,
   },
   {
     path: "/map",
-    element: <Map />,
+    element: <Map route="#/map" />,
   },
 ]);
 

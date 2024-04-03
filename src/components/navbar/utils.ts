@@ -1,9 +1,9 @@
 import { Entry } from "../../config/navbarConfig"
 
-export function checkActive(entry: Entry) {
+export function checkActive(entry: Entry, currentRoute: string) {
     if (entry.type === "flat") {
-        return location.href.includes(entry.route)
+        return currentRoute == entry.route
     } else {
-        return entry.childs.map(child => location.href.includes(child.route)).filter(x => x).length > 0
+        return entry.childs.filter(child => currentRoute == child.route).length > 0
     }
 }

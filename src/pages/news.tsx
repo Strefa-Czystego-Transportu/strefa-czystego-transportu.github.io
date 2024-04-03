@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import NewsItem from '../components/news/newsItem';
 import NewsSkeleton from '../components/news/newsSkeleton';
 import CheckZTP from '../components/checkZTP';
+import { useAppDispatch } from '../hooks';
+import { setRoute } from '../stores/currentRoute';
 
 async function fetchArticle(): Promise<NewsData[]> {
     const response = await fetch('https://corsproxy.io/?https://ztp.krakow.pl/wszystkie-aktualnosci/sct');
@@ -27,7 +29,7 @@ async function fetchArticle(): Promise<NewsData[]> {
     });
 }
 
-export default function News() {
+export default function News({ route }: { route: string }) {
 
     const [data, setData] = useState<(NewsData | undefined)[]>(Array(6).fill(undefined))
 
@@ -35,6 +37,10 @@ export default function News() {
         fetchArticle()
             .then(articleDataArray => setData(articleDataArray))
     }, [])
+
+    const dispatch = useAppDispatch()
+
+    useEffect(() => { dispatch(setRoute(route)) })
 
     return (
         <>
